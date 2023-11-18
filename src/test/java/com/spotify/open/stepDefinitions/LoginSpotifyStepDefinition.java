@@ -5,11 +5,8 @@ import com.spotify.open.tasks.LoginCredentialsTask;
 import com.spotify.open.tasks.LoginTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
-import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-
-import static com.spotify.open.UI.LoginUI.BUTTON_USER;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class LoginSpotifyStepDefinition {
