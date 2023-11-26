@@ -3,12 +3,13 @@ Feature: Play a song on spotify music.
 
   Background:
     Given a user is on the spotify website
-    And its logged in successfully
+    When the user pushes the log in button
+    And fill in its email and password
+    Then it should be redirected to the home of its spotify account
 
   Scenario: Song is played successfully
-    Given the user is on the home screen
-    When it clicks the search option
-    And search for a song's name
+    Given the user selects the search option
+    When it types the name of a song and then hits enter
     Then the user will be able to play that song from the results
 
 

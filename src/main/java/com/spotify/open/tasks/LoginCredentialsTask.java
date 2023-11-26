@@ -14,11 +14,11 @@ public class LoginCredentialsTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Enter.theValue("<email>").into(TXT_EMAIL).thenHit(Keys.TAB)
+                Enter.theValue("<enterEmail>").into(TXT_EMAIL).thenHit(Keys.TAB)
         );
 
         actor.attemptsTo(
-                Enter.theValue("<password>").into(TXT_PASSWORD).thenHit(Keys.ENTER)
+                Enter.theValue("<enterPassword").into(TXT_PASSWORD).thenHit(Keys.ENTER)
         );
     }
 

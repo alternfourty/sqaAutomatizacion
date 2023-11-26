@@ -1,15 +1,19 @@
 package com.spotify.open.stepDefinitions;
 
-import com.spotify.open.tasks.LoginCheckTask;
+import com.spotify.open.questions.CheckLogin;
 import com.spotify.open.tasks.LoginCredentialsTask;
-import com.spotify.open.tasks.LoginTask;
+import com.spotify.open.tasks.ClickLoginTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.hamcrest.Matchers;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class LoginSpotifyStepDefinition {
+
     @Before
     public void setStage(){
         setTheStage(new OnlineCast());
@@ -23,19 +27,21 @@ public class LoginSpotifyStepDefinition {
     @When("the user pushes the log in button")
     public void theUserPushesTheLogInButton() {
         theActorInTheSpotlight().attemptsTo(
-                LoginTask.on()
+                ClickLoginTask.on()
         );
     }
-    @When("fill in its login credentials")
-    public void fillInItsLoginCredentials() {
+    @And("fill in its email and password")
+    public void fillInItsEmailAndPassword() {
         theActorInTheSpotlight().attemptsTo(
                 LoginCredentialsTask.on()
         );
     }
-    @Then("it should be redirected to the home of the spotify player")
-    public void itShouldBeRedirectedToTheHomeOfTheSpotifyPlayer() {
-        theActorInTheSpotlight().attemptsTo(
-                LoginCheckTask.on()
+    @Then("it should be redirected to the home of its spotify account")
+    public void itShouldBeRedirectedToTheHomeOfItsSpotifyAccount() {
+        theActorInTheSpotlight().should(
+                seeThat(
+                        CheckLogin.check(), Matchers.equalTo(true)
+                )
         );
     }
 }

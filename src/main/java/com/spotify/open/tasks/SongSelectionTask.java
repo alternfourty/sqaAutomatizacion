@@ -1,26 +1,16 @@
 package com.spotify.open.tasks;
-
+import com.spotify.open.interactions.ClickAndSelect;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-
-import static com.spotify.open.UI.HomePageUI.BUTTON_LOGIN;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-
-public class LoginTask implements Task {
-
+public class SongSelectionTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
-
         actor.attemptsTo(
-                Click.on(BUTTON_LOGIN)
+                ClickAndSelect.click()
         );
     }
-
-    public static LoginTask on() {
-        return instrumented(LoginTask.class);
+    public static SongSelectionTask on() {
+        return instrumented(SongSelectionTask.class);
     }
-
-
-
 }

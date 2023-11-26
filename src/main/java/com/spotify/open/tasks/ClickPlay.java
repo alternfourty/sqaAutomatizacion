@@ -3,19 +3,18 @@ package com.spotify.open.tasks;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import static com.spotify.open.UI.LoginUI.BUTTON_USER;
+import static com.spotify.open.UI.SearchSongUI.BUTTON_PLAY;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class LoginCheckTask implements Task {
+public class ClickPlay implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(BUTTON_USER)
+                Click.on(BUTTON_PLAY)
         );
     }
-
-    public static LoginCheckTask on() {
-        return instrumented(LoginCheckTask.class);
+    public static ClickPlay on() {
+        return instrumented(ClickPlay.class);
     }
 }
