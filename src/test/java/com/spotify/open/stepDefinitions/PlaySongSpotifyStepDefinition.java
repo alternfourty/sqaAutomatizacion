@@ -1,7 +1,5 @@
 package com.spotify.open.stepDefinitions;
 
-import com.spotify.open.questions.CheckHome;
-import com.spotify.open.questions.CheckLogin;
 import com.spotify.open.questions.CheckPlayingSong;
 import com.spotify.open.tasks.ClickPlay;
 import com.spotify.open.tasks.ClickSearchTask;
@@ -20,22 +18,7 @@ public class PlaySongSpotifyStepDefinition {
     public void setStage(){
         setTheStage(new OnlineCast());
     }
-    @Given("a user is logged on the spotify website")
-    public void aUserIsLoggedOnTheSpotifyWebsite() {
-        theActorCalled("user").should(
-                seeThat(
-                        CheckLogin.check(), Matchers.equalTo(true)
-                )
-        );
-    }
-    @Given("the user is on the home screen")
-    public void theUserIsOnTheHomeScreen() {
-        theActorInTheSpotlight().should(
-                seeThat(
-                        CheckHome.check(), Matchers.equalTo(true)
-                )
-        );
-    }
+
     @Given("the user selects the search option")
     public void theUserSelectsTheSearchOption() {
         theActorInTheSpotlight().attemptsTo(

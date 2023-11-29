@@ -1,5 +1,6 @@
 package com.spotify.open.stepDefinitions;
 
+import com.spotify.open.questions.CheckHome;
 import com.spotify.open.questions.CheckLogin;
 import com.spotify.open.tasks.LoginCredentialsTask;
 import com.spotify.open.tasks.ClickLoginTask;
@@ -41,6 +42,11 @@ public class LoginSpotifyStepDefinition {
         theActorInTheSpotlight().should(
                 seeThat(
                         CheckLogin.check(), Matchers.equalTo(true)
+                )
+        );
+        theActorInTheSpotlight().should(
+                seeThat(
+                        CheckHome.check(), Matchers.equalTo(true)
                 )
         );
     }

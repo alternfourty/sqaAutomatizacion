@@ -5,7 +5,6 @@ Feature: Play a song on spotify music.
     Given a user is on the spotify website
     When the user pushes the log in button
     And fill in its email and password
-    Then it should be redirected to the home of its spotify account
 
   Scenario: Song is played successfully
     Given the user selects the search option
